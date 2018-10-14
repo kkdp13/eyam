@@ -21,15 +21,24 @@ def eyam(t_mode, y_mode, t_high, t_low):
 
 def findset0(t_mode, t_high, t_low):
     if(t_high-t_mode < t_mode-t_low):
-        todayset0 = (t_mode-t_high+t_mode) #get high from streaming
+        todayset0 = (t_mode-t_low+t_mode) #get low from streaming
         return todayset0
     elif(t_high-t_mode > t_mode-t_low):
-        todayset0 = (t_mode-t_low+t_mode) #get low from streaming
+        todayset0 = (t_mode-t_high+t_mode) #get high from streaming
         return todayset0
     else:
         todayset0 = 0
         return todayset0
 
+
+# t_mode = 1109
+# t_high = 1115
+# t_low = 1098
+
+# todayset0 = findset0(float(t_mode), float(t_high), float(t_low))
+# print(todayset0)
+# print(t_high-t_mode)
+# print(t_mode-t_low)
 # textfromuser = "/1114,1120,1113"
 # todaymode = textfromuser.split(",")[0]
 # todaymode = todaymode[1:]
