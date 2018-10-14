@@ -85,22 +85,26 @@ def bot():
     
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
     if textstart == '/':
-        textfromuser = "/1114,1120,1113"
+        textfromuser = "/1114,1113,1120,1113"
         todaymode = textfromuser.split(",")[0]
         todaymode = todaymode[1:]
         # print(todaymode) # check today mode
-        todayhigh = textfromuser.split(",")[1]
-        # print(todayhigh) # check today high
-        todaylow = textfromuser.split(",")[2]
+        yesterdaymode = textfromuser.split(",")[1]
+        # print(todayhigh) # check yesterday mode
+        todayhigh = textfromuser.split(",")[2]
+        # print(todaylow) # check today high
+        todaylow = textfromuser.split(",")[3]
         # print(todaylow) # check today low
         todaymode = float(todaymode)
+        yesterdaymode = float(yesterdaymode)
         todayhigh = float(todayhigh)
         todaylow = float(todaylow)
-        getinfo = eyam(todaymode, todayhigh, todaylow)
+        getinfo = eyam(todaymode, yesterdaymode, todayhigh, todaylow)
 
         todayly = "today ly = {}".format(getinfo[0])
         todayset0 = "today set 0 = {}".format(getinfo[1])
         todaytrend = "today trend = {}".format(getinfo[2])
+        recheckinput = "todaymode = {} \nyesterdaymode = {} \ntodayhigh = {} \ntodaylow = {}".format(todaymode,yesterdaymode,todayhigh,todaylow)
         # newpriceusdtext = 'total price is {} USD'.format(newpriceusd)
         # newpricetext = 'total price is {} THB'.format(newprice)
         # rapaportpricetext = 'the rapaport is {}'.format(price['rapaportprice'])
