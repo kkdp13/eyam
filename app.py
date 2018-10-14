@@ -83,30 +83,31 @@ def bot():
     #replyQueue.append('นี่คือรูปแบบข้อความที่รับส่ง')
     
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
-    if textstart == '/':  
-        # text = '/r,2.34,d,vvs1,30'
-        # diamondshape = text.split(',')[0]
-        # diamondshape = diamondshape[1]
-        # carat = text.split(',')[1]
-        # color = text.split(',')[2]
-        # clarity = text.split(',')[3]
-        # discount = text.split(',')[4]
-        # price = diamondprice(diamondshape,carat,color,clarity,discount)
-        # newprice = placevalue(price['calprice'])
-        # newpriceusd = placevalue(price['calpriceusd'])
-        # calprice,caratport,newprice,rate
-        # replyQueue.append(diamondshape)
-        # replyQueue.append(carat)
-        # replyQueue.append(color)
-        # replyQueue.append(clarity)
+    if textstart == '/':
+        textfromuser = "/1114,1120,1113"
+        todaymode = textfromuser.split(",")[0]
+        todaymode = todaymode[1:]
+        # print(todaymode) # check today mode
+        todayhigh = textfromuser.split(",")[1]
+        # print(todayhigh) # check today high
+        todaylow = textfromuser.split(",")[2]
+        # print(todaylow) # check today low
+        todaymode = float(todaymode)
+        todayhigh = float(todayhigh)
+        todaylow = float(todaylow)
+        getinfo = eyam(todaymode, todayhigh, todaylow)
+
+        todayly = "today ly = {}".format(getinfo[0])
+        todayset0 = "today set 0 = {}".format(getinfo[1])
+        todaytrend = "today trend = {}".format(getinfo[2])
         # newpriceusdtext = 'total price is {} USD'.format(newpriceusd)
         # newpricetext = 'total price is {} THB'.format(newprice)
         # rapaportpricetext = 'the rapaport is {}'.format(price['rapaportprice'])
         # currencytext = 'the superrich rate is {}'.format(price['currency'])
         # discounttext = 'the discount is {}%'.format(price['discount'])
-        replyQueue.append(text)
-        # replyQueue.append(newpricetext)
-        # replyQueue.append(rapaportpricetext)
+        replyQueue.append(todayly)
+        replyQueue.append(todayset0)
+        replyQueue.append(todaytrend)
         # replyQueue.append(currencytext)
         # replyQueue.append(discounttext)
         reply(replyToken, replyQueue[:5])        
