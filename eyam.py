@@ -19,7 +19,7 @@ def eyam(t_mode, y_mode, t_high, t_low):
         todaytrend = "no trend"
         return (todayly, todayset0, todaytrend)
 
-def findset0(t_mode, y_mode, t_high, t_low):
+def findset0(t_mode, t_high, t_low):
     if(t_high-t_mode < t_mode-t_low):
         todayset0 = (t_mode-t_high+t_mode) #get high from streaming
         return todayset0
@@ -50,3 +50,5 @@ def findset0(t_mode, y_mode, t_high, t_low):
 # print("today ly = {}".format(getinfo[0]))
 # print("today set 0 = {}".format(getinfo[1]))
 # print("today trend = {}".format(getinfo[2]))
+# recheckinput = "todaymode = {} \nyesterdaymode = {} \ntodayhigh = {} \ntodaylow = {}".format(todaymode,yesterdaymode,todayhigh,todaylow)
+# print(recheckinput)

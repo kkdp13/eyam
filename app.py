@@ -113,6 +113,7 @@ def bot():
         replyQueue.append(todayly)
         replyQueue.append(todayset0)
         replyQueue.append(todaytrend)
+        replyQueue.append(recheckinput)
         # replyQueue.append(currencytext)
         # replyQueue.append(discounttext)
         reply(replyToken, replyQueue[:5])        
