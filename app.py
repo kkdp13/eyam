@@ -31,7 +31,7 @@ app = Flask(__name__)
  
 @app.route('/')
 def index():
-    return 'This is chatbot server for eyam.', 200
+    return 'This is chatbot server for eyam.'
 @app.route('/bot', methods=['POST'])
 
 def bot():
@@ -61,8 +61,8 @@ def bot():
     
     # ตรงนี้ต้องแน่ใจว่า msgType เป็นประเภท text ถึงเรียกได้ครับ 
     # lower เพื่อให้เป็นตัวพิมพ์เล็ก strip เพื่อนำช่องว่างหัวท้ายออก ครับ
-    # text = msg_in_json["events"][0]['message']['text'].lower().strip()
-    # textstart = text[0]
+    text = msg_in_json["events"][0]['message']['text'].lower().strip()
+    textstart = text[0]
     
     # ตัวอย่างการทำให้ bot ถาม-ตอบได้ แบบ exact match
     # response_dict = {'สวัสดี':'สวัสดีครับ'}
