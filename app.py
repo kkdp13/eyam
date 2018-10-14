@@ -101,34 +101,26 @@ def bot():
         todaylow = float(todaylow)
         getinfo = eyam(todaymode, yesterdaymode, todayhigh, todaylow)
 
-        todayly = "today ly = {}\ntoday set0 = {}\ntoday trend = {}".format(getinfo[0],getinfo[1],getinfo[2])
+        todayinfo = "today ly = {}\ntoday set0 = {}\ntoday trend = {}".format(getinfo[0],getinfo[1],getinfo[2])
         recheckinput = "todaymode = {} \nyesterdaymode = {} \ntodayhigh = {} \ntodaylow = {}".format(todaymode,yesterdaymode,todayhigh,todaylow)
-        # newpriceusdtext = 'total price is {} USD'.format(newpriceusd)
-        # newpricetext = 'total price is {} THB'.format(newprice)
-        # rapaportpricetext = 'the rapaport is {}'.format(price['rapaportprice'])
-        # currencytext = 'the superrich rate is {}'.format(price['currency'])
-        # discounttext = 'the discount is {}%'.format(price['discount'])
-        replyQueue.append(todayly)
-        replyQueue.append(todayset0)
-        replyQueue.append(todaytrend)
+
+        replyQueue.append(todayinfo)
         replyQueue.append(recheckinput)
-        # replyQueue.append(currencytext)
-        # replyQueue.append(discounttext)
         reply(replyToken, replyQueue[:5])        
         return 'OK', 200
     # elif textstart == '=':
     #     text = '=111111111,222222222'
-    #     price1 = text.split(',')[0]
-    #     price1 = price1[1:]
-    #     price2 = text.split(',')[1]
-    #     price1 = float(price1)
-    #     price2 = float(price2)
-    #     totalprice = price1+price2
-    #     print(totalprice)
-    #     totalpricetext = 'sum = {}'.format(totalprice)
-    #     replyQueue.append(totalpricetext)
-    #     reply(replyToken, replyQueue[:5])
-    #     return 'OK', 200
+        # price1 = text.split(',')[0]
+        # price1 = price1[1:]
+        # price2 = text.split(',')[1]
+        # price1 = float(price1)
+        # price2 = float(price2)
+        # totalprice = price1+price2
+        # print(totalprice)
+        # totalpricetext = 'sum = {}'.format(totalprice)
+        # replyQueue.append(totalpricetext)
+        # reply(replyToken, replyQueue[:5])
+        # return 'OK', 200
     # elif textstart == '.':
     #     currency = 0.0
     #     currency = float(getcurrency())
