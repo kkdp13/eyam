@@ -109,8 +109,8 @@ def bot():
         # recheckinput = "todaymode = {} \nyesterdaymode = {} \ntodayhigh = {} \ntodaylow = {}".format(todaymode,yesterdaymode,todayhigh,todaylow)
 
         # replyQueue.append(todayinfo)
-        # replyQueue.append(recheckinput)
-        # reply(replyToken, replyQueue[:5])        
+        replyQueue.append("mode updated : {}".format(todaymode))
+        reply(replyToken, replyQueue[:5])        
         return 'OK', 200
     elif textstart == '=':
         geteyaminfos = eyaminfo()
