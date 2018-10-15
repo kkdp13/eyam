@@ -66,7 +66,22 @@ def modeupdate(todaymode):
     tmode1 = 4
     tmode2 = 3
     wks.update_cell(tmode1,tmode2,todaymode)
-    
+
+def ymodeupdate(yesterdaymode):
+    ymode1 = 3
+    ymode2 = 3
+    wks.update_cell(ymode1,ymode2,yesterdaymode)
+
+def highupdate(todayhigh):
+    tHIGH1 = 12
+    tHIGH2 = 5
+    wks.update_cell(tHIGH1,tHIGH2,todayhigh)
+
+def lowupdate(todaylow):
+    tLOW1 = 12
+    tLOW2 = 2
+    wks.update_cell(tLOW1,tLOW2,todaylow)
+
 # eyaminfo()
 # yesmode1 = 3
 # yesmode2 = 3

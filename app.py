@@ -15,7 +15,7 @@ from flask import Flask, request
 import json
 import requests
 from eyam import eyam
-from googlesheet import eyaminfo, modeupdate
+from googlesheet import eyaminfo, modeupdate, ymodeupdate, highupdate, lowupdate
 
 #----------------------------------------
 #from diamondprice import diamondprice
@@ -86,9 +86,26 @@ def bot():
     
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
     if textstart == '/':
-        todaymode = text.split(",")[1]
-        modeupdate(todaymode)
-
+        if text[1] == 't':
+            todaymode = text.split(",")[1]
+            modeupdate(todaymode)
+            replyQueue.append("todaymode updated : {}".format(todaymode))
+            reply(replyToken, replyQueue[:5])
+        elif text[1] == 'y':
+            yesterdaymode = text.split(",")[1]
+            ymodeupdate(yesterdaymode)
+            replyQueue.append("yesterdaymode updated : {}".format(yesterdaymode))
+            reply(replyToken, replyQueue[:5])
+        elif text[1] == 'h':
+            todayHIGH = text.split(",")[1]
+            highupdate(todayHIGH)
+            replyQueue.append("todayHIGH updated : {}".format(todayHIGH))
+            reply(replyToken, replyQueue[:5])
+        elif text[1] == 'l':
+            todayLOW = text.split(",")[1]
+            lowupdate(todayLOW)
+            replyQueue.append("todayLOW updated : {}".format(todayLOW))
+            reply(replyToken, replyQueue[:5])
         # # textfromuser = "/1114,1113,1120,1113"
         # todaymode = text.split(",")[0]
         # todaymode = todaymode[1:]
@@ -109,8 +126,8 @@ def bot():
         # recheckinput = "todaymode = {} \nyesterdaymode = {} \ntodayhigh = {} \ntodaylow = {}".format(todaymode,yesterdaymode,todayhigh,todaylow)
 
         # replyQueue.append(todayinfo)
-        replyQueue.append("mode updated : {}".format(todaymode))
-        reply(replyToken, replyQueue[:5])        
+        # replyQueue.append("mode updated : {}".format(todaymode))
+        # reply(replyToken, replyQueue[:5])        
         return 'OK', 200
     elif textstart == '=':
         geteyaminfos = eyaminfo()
