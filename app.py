@@ -114,8 +114,8 @@ def bot():
         """yesterdaymode,todaymode,todaytrend,
         todayLY,todayJP,todayNN1,todayNN2,
         todayKM1,todayKM2,todayLOW,todayHIGH"""
-        info = "yesterdaymode = {}\ntodaymode = {}\ntodaytrend = {}".format(geteyaminfos[0],geteyaminfos[1],geteyaminfos[2])
-        info2 = "todayLY 50% = {}\ntodayJP 127% = {}\ntodayNN1 161.8% = {}\ntodayNN2 261.8% = {}".format(geteyaminfos[3],geteyaminfos[4],geteyaminfos[5],geteyaminfos[6])
+        info = "yesterdaymode = {}\ntodaymode = {}\ntodaytrend = {}\n".format(geteyaminfos[0],geteyaminfos[1],geteyaminfos[2])
+        info2 = "todayLY 50% = {}\ntodayJP 127% = {}\ntodayNN1 161.8% = {}\ntodayNN2 261.8% = {}\n".format(geteyaminfos[3],geteyaminfos[4],geteyaminfos[5],geteyaminfos[6])
         info3 = "todayKM1 423.6% = {}\ntodayKM2 685.4% = {}\ntodayLOW = {}\ntodayHIGH = {}".format(geteyaminfos[7],geteyaminfos[8],geteyaminfos[9],geteyaminfos[10])
         # print("yesterdaymode = {}".format(geteyaminfos[0]))
         # print("todaymode = {}".format(geteyaminfos[1]))
