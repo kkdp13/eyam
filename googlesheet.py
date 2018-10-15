@@ -62,6 +62,11 @@ def eyaminfo():
     # print("--------"*10)
     return [yesterdaymode,todaymode,todaytrend,todayLY,todayJP,todayNN1,todayNN2,todayKM1,todayKM2,todayLOW,todayHIGH]
 
+def modeupdate(todaymode):
+    tmode1 = 4
+    tmode2 = 3
+    wks.update_cell(tmode1,tmode2,todaymode)
+    
 # eyaminfo()
 # yesmode1 = 3
 # yesmode2 = 3

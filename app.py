@@ -110,7 +110,7 @@ def bot():
 
         # replyQueue.append(todayinfo)
         # replyQueue.append(recheckinput)
-        reply(replyToken, replyQueue[:5])        
+        # reply(replyToken, replyQueue[:5])        
         return 'OK', 200
     elif textstart == '=':
         geteyaminfos = eyaminfo()
