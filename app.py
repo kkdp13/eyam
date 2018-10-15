@@ -15,6 +15,7 @@ from flask import Flask, request
 import json
 import requests
 from eyam import eyam
+from googlesheet import eyaminfo
 
 #----------------------------------------
 #from diamondprice import diamondprice
@@ -108,19 +109,28 @@ def bot():
         replyQueue.append(recheckinput)
         reply(replyToken, replyQueue[:5])        
         return 'OK', 200
-    # elif textstart == '=':
-    #     text = '=111111111,222222222'
-        # price1 = text.split(',')[0]
-        # price1 = price1[1:]
-        # price2 = text.split(',')[1]
-        # price1 = float(price1)
-        # price2 = float(price2)
-        # totalprice = price1+price2
-        # print(totalprice)
-        # totalpricetext = 'sum = {}'.format(totalprice)
-        # replyQueue.append(totalpricetext)
-        # reply(replyToken, replyQueue[:5])
-        # return 'OK', 200
+    elif textstart == '=':
+        geteyaminfos = eyaminfo()
+        """yesterdaymode,todaymode,todaytrend,
+        todayLY,todayJP,todayNN1,todayNN2,
+        todayKM1,todayKM2,todayLOW,todayHIGH"""
+        info = "yesterdaymode = {}\ntodaymode = {}\ntodaytrend = {}".format(geteyaminfos[0],geteyaminfos[1],geteyaminfos[2])
+        info2 = "todayLY 50% = {}\ntodayJP 127% = {}\ntodayNN1 161.8% = {}\ntodayNN2 261.8% = {}".format(geteyaminfos[3],geteyaminfos[4],geteyaminfos[5],geteyaminfos[6])
+        info3 = "todayKM1 423.6% = {}\ntodayKM2 685.4% = {}\ntodayLOW = {}\ntodayHIGH = {}".format(geteyaminfos[7],geteyaminfos[8],geteyaminfos[9],geteyaminfos[10])
+        # print("yesterdaymode = {}".format(geteyaminfos[0]))
+        # print("todaymode = {}".format(geteyaminfos[1]))
+        # print("todaytrend = {}".format(geteyaminfos[2]))
+        # print("todayLY 50% = {}".format(geteyaminfos[3]))
+        # print("todayJP 127% = {}".format(geteyaminfos[4]))
+        # print("todayNN1 161.8% = {}".format(geteyaminfos[5]))
+        # print("todayNN2 261.8% = {}".format(geteyaminfos[6]))
+        # print("todayKM1 423.6% = {}".format(geteyaminfos[7]))
+        # print("todayKM2 685.4% = {}".format(geteyaminfos[8]))
+        # print("todayLOW = {}".format(geteyaminfos[9]))
+        # print("todayHIGH = {}".format(geteyaminfos[10]))
+        replyQueue.append(info+info2+info3)
+        reply(replyToken, replyQueue[:5])
+        return 'OK', 200
     # elif textstart == '.':
     #     currency = 0.0
     #     currency = float(getcurrency())
