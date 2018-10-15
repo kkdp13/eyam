@@ -15,7 +15,7 @@ from flask import Flask, request
 import json
 import requests
 from eyam import eyam
-from googlesheet import eyaminfo
+from googlesheet import eyaminfo, modeupdate
 
 #----------------------------------------
 #from diamondprice import diamondprice
@@ -86,27 +86,30 @@ def bot():
     
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
     if textstart == '/':
-        # textfromuser = "/1114,1113,1120,1113"
-        todaymode = text.split(",")[0]
-        todaymode = todaymode[1:]
-        # print(todaymode) # check today mode
-        yesterdaymode = text.split(",")[1]
-        # print(todayhigh) # check yesterday mode
-        todayhigh = text.split(",")[2]
-        # print(todaylow) # check today high
-        todaylow = text.split(",")[3]
-        # print(todaylow) # check today low
-        todaymode = float(todaymode)
-        yesterdaymode = float(yesterdaymode)
-        todayhigh = float(todayhigh)
-        todaylow = float(todaylow)
-        getinfo = eyam(todaymode, yesterdaymode, todayhigh, todaylow)
+        todaymode = text.split(",")[1]
+        modeupdate(todaymode)
 
-        todayinfo = "today ly = {}\ntoday set0 = {}\ntoday trend = {}".format(getinfo[0],getinfo[1],getinfo[2])
-        recheckinput = "todaymode = {} \nyesterdaymode = {} \ntodayhigh = {} \ntodaylow = {}".format(todaymode,yesterdaymode,todayhigh,todaylow)
+        # # textfromuser = "/1114,1113,1120,1113"
+        # todaymode = text.split(",")[0]
+        # todaymode = todaymode[1:]
+        # # print(todaymode) # check today mode
+        # yesterdaymode = text.split(",")[1]
+        # # print(todayhigh) # check yesterday mode
+        # todayhigh = text.split(",")[2]
+        # # print(todaylow) # check today high
+        # todaylow = text.split(",")[3]
+        # # print(todaylow) # check today low
+        # todaymode = float(todaymode)
+        # yesterdaymode = float(yesterdaymode)
+        # todayhigh = float(todayhigh)
+        # todaylow = float(todaylow)
+        # getinfo = eyam(todaymode, yesterdaymode, todayhigh, todaylow)
 
-        replyQueue.append(todayinfo)
-        replyQueue.append(recheckinput)
+        # todayinfo = "today ly = {}\ntoday set0 = {}\ntoday trend = {}".format(getinfo[0],getinfo[1],getinfo[2])
+        # recheckinput = "todaymode = {} \nyesterdaymode = {} \ntodayhigh = {} \ntodaylow = {}".format(todaymode,yesterdaymode,todayhigh,todaylow)
+
+        # replyQueue.append(todayinfo)
+        # replyQueue.append(recheckinput)
         reply(replyToken, replyQueue[:5])        
         return 'OK', 200
     elif textstart == '=':
