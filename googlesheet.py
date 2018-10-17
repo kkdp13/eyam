@@ -122,12 +122,16 @@ def resetnewday():
     newset1 = 14
     newset2 = 5
     tmode = wks.cell(tmode1,tmode2).value
-    wks.update_cell(ymode1,ymode2,tmode)
-    wks.update_cell(tHIGH1,tHIGH2,0)
-    wks.update_cell(tLOW1,tLOW2,0)
-    wks.update_cell(tmode1,tmode2,0)
-    wks.update_cell(samemode1,samemdoe2,0)
-    wks.update_cell(newset1,newset2,0)
+    if tmode != 0:
+        wks.update_cell(ymode1,ymode2,tmode)
+        wks.update_cell(tHIGH1,tHIGH2,0)
+        wks.update_cell(tLOW1,tLOW2,0)
+        wks.update_cell(tmode1,tmode2,0)
+        wks.update_cell(samemode1,samemdoe2,0)
+        wks.update_cell(newset1,newset2,0)
+        return 1
+    else:
+        return 0
 
 # eyaminfo()
 # yesmode1 = 3
