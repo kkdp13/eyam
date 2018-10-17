@@ -15,7 +15,7 @@ from flask import Flask, request
 import json
 import requests
 from eyam import eyam
-from googlesheet import eyaminfo, modeupdate, ymodeupdate, highupdate, lowupdate
+from googlesheet import eyaminfo, modeupdate, ymodeupdate, highupdate, lowupdate, resetnewday
 
 #----------------------------------------
 #from diamondprice import diamondprice
@@ -89,23 +89,25 @@ def bot():
         if text[1] == 't':
             todaymode = text.split(",")[1]
             modeupdate(todaymode)
-            replyQueue.append("todaymode updated : {}".format(todaymode))
+            replyQueue.append("tmode updated : {}".format(todaymode))
             reply(replyToken, replyQueue[:5])
         elif text[1] == 'y':
             yesterdaymode = text.split(",")[1]
             ymodeupdate(yesterdaymode)
-            replyQueue.append("yesterdaymode updated : {}".format(yesterdaymode))
+            replyQueue.append("ymode updated : {}".format(yesterdaymode))
             reply(replyToken, replyQueue[:5])
         elif text[1] == 'h':
             todayHIGH = text.split(",")[1]
             highupdate(todayHIGH)
-            replyQueue.append("todayHIGH updated : {}".format(todayHIGH))
+            replyQueue.append("HIGH updated : {}".format(todayHIGH))
             reply(replyToken, replyQueue[:5])
         elif text[1] == 'l':
             todayLOW = text.split(",")[1]
             lowupdate(todayLOW)
-            replyQueue.append("todayLOW updated : {}".format(todayLOW))
+            replyQueue.append("LOW updated : {}".format(todayLOW))
             reply(replyToken, replyQueue[:5])
+        elif text[1] == 'r':
+            resetnewday()
         # # textfromuser = "/1114,1113,1120,1113"
         # todaymode = text.split(",")[0]
         # todaymode = todaymode[1:]
@@ -133,10 +135,10 @@ def bot():
         geteyaminfos = eyaminfo()
         """yesterdaymode,todaymode,todaytrend,
         todayLY,todayJP,todayNN1,todayNN2,
-        todayKM1,todayKM2,todayLOW,todayHIGH"""
-        info = "yesterdaymode = {}\ntodaymode = {}\ntodaytrend = {}\n".format(geteyaminfos[0],geteyaminfos[1],geteyaminfos[2])
-        info2 = "todayLY 50% = {}\ntodayJP 127% = {}\ntodayNN1 161.8% = {}\ntodayNN2 261.8% = {}\n".format(geteyaminfos[3],geteyaminfos[4],geteyaminfos[5],geteyaminfos[6])
-        info3 = "todayKM1 423.6% = {}\ntodayKM2 685.4% = {}\ntodayLOW = {}\ntodayHIGH = {}".format(geteyaminfos[7],geteyaminfos[8],geteyaminfos[9],geteyaminfos[10])
+        todayKM1,todayKM2,todayLOW,todayHIGH,todaySet0"""
+        info = "ymode = {}\ntmode = {}\ntrend = {}\nset0 = {}".format(geteyaminfos[0],geteyaminfos[1],geteyaminfos[2],geteyaminfos[11])
+        info2 = "LY 50% = {}\nJP 127% = {}\nNN1 161.8% = {}\nNN2 261.8% = {}\n".format(geteyaminfos[3],geteyaminfos[4],geteyaminfos[5],geteyaminfos[6])
+        info3 = "KM1 423.6% = {}\nKM2 685.4% = {}\nLOW = {}\nHIGH = {}".format(geteyaminfos[7],geteyaminfos[8],geteyaminfos[9],geteyaminfos[10])
         # print("yesterdaymode = {}".format(geteyaminfos[0]))
         # print("todaymode = {}".format(geteyaminfos[1]))
         # print("todaytrend = {}".format(geteyaminfos[2]))
