@@ -108,14 +108,14 @@ def bot():
             reply(replyToken, replyQueue[:5])
         elif text[1] == 'r':
             resetdone = resetnewday()
-            # if resetdone == 1:
-            #     replyQueue.append("reset")
-            #     reply(replyToken, replyQueue[:5])
-            # else:
-            #     replyQueue.append("กด reset ไปแล้วครับ")
-            #     reply(replyToken, replyQueue[:5])
-        replyQueue.append("mode updated : {}".format(resetdone))
-        reply(replyToken, replyQueue[:5])        
+            if resetdone > 0:
+                replyQueue.append("reset")
+                reply(replyToken, replyQueue[:5])
+            else:
+                replyQueue.append("กด reset ไปแล้วครับ")
+                reply(replyToken, replyQueue[:5])
+        # replyQueue.append("mode updated : {}".format(resetdone))
+        # reply(replyToken, replyQueue[:5])        
         return 'OK', 200
     elif textstart == '=':
         geteyaminfos = eyaminfo()
