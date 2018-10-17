@@ -107,33 +107,13 @@ def bot():
             replyQueue.append("LOW updated : {}".format(todayLOW))
             reply(replyToken, replyQueue[:5])
         elif text[1] == 'r':
-            resetdone = resetnewday()
-            if resetdone == 1:
-                replyQueue.append("กด reset ไปแล้วครับ")
-                reply(replyToken, replyQueue[:5])
-            else:
-                replyQueue.append("reset")
-                reply(replyToken, replyQueue[:5])
-        # # textfromuser = "/1114,1113,1120,1113"
-        # todaymode = text.split(",")[0]
-        # todaymode = todaymode[1:]
-        # # print(todaymode) # check today mode
-        # yesterdaymode = text.split(",")[1]
-        # # print(todayhigh) # check yesterday mode
-        # todayhigh = text.split(",")[2]
-        # # print(todaylow) # check today high
-        # todaylow = text.split(",")[3]
-        # # print(todaylow) # check today low
-        # todaymode = float(todaymode)
-        # yesterdaymode = float(yesterdaymode)
-        # todayhigh = float(todayhigh)
-        # todaylow = float(todaylow)
-        # getinfo = eyam(todaymode, yesterdaymode, todayhigh, todaylow)
-
-        # todayinfo = "today ly = {}\ntoday set0 = {}\ntoday trend = {}".format(getinfo[0],getinfo[1],getinfo[2])
-        # recheckinput = "todaymode = {} \nyesterdaymode = {} \ntodayhigh = {} \ntodaylow = {}".format(todaymode,yesterdaymode,todayhigh,todaylow)
-
-        # replyQueue.append(todayinfo)
+            resetnewday()
+            # if resetdone == 1:
+            #     replyQueue.append("กด reset ไปแล้วครับ")
+            #     reply(replyToken, replyQueue[:5])
+            # else:
+            replyQueue.append("reset")
+            reply(replyToken, replyQueue[:5])
         # replyQueue.append("mode updated : {}".format(todaymode))
         # reply(replyToken, replyQueue[:5])        
         return 'OK', 200
