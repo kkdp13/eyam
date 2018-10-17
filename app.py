@@ -107,13 +107,13 @@ def bot():
             replyQueue.append("LOW updated : {}".format(todayLOW))
             reply(replyToken, replyQueue[:5])
         elif text[1] == 'r':
-            resetnewday()
-            # if resetdone == 1:
-            #     replyQueue.append("กด reset ไปแล้วครับ")
-            #     reply(replyToken, replyQueue[:5])
-            # else:
-            replyQueue.append("reset")
-            reply(replyToken, replyQueue[:5])
+            resetdone = resetnewday()
+            if resetdone == 1:
+                replyQueue.append("reset")
+                reply(replyToken, replyQueue[:5])
+            else:
+                replyQueue.append("กด reset ไปแล้วครับ")
+                reply(replyToken, replyQueue[:5])
         # replyQueue.append("mode updated : {}".format(todaymode))
         # reply(replyToken, replyQueue[:5])        
         return 'OK', 200
