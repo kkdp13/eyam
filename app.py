@@ -136,7 +136,7 @@ def bot():
         """yesterdaymode,todaymode,todaytrend,
         todayLY,todayJP,todayNN1,todayNN2,
         todayKM1,todayKM2,todayLOW,todayHIGH,todaySet0"""
-        info = "ymode = {}\ntmode = {}\ntrend = {}\nset0 = {}".format(geteyaminfos[0],geteyaminfos[1],geteyaminfos[2],geteyaminfos[11])
+        info = "ymode = {}\ntmode = {}\ntrend = {}\nset0 = {}\n".format(geteyaminfos[0],geteyaminfos[1],geteyaminfos[2],geteyaminfos[11])
         info2 = "LY 50% = {}\nJP 127% = {}\nNN1 161.8% = {}\nNN2 261.8% = {}\n".format(geteyaminfos[3],geteyaminfos[4],geteyaminfos[5],geteyaminfos[6])
         info3 = "KM1 423.6% = {}\nKM2 685.4% = {}\nLOW = {}\nHIGH = {}".format(geteyaminfos[7],geteyaminfos[8],geteyaminfos[9],geteyaminfos[10])
         # print("yesterdaymode = {}".format(geteyaminfos[0]))
