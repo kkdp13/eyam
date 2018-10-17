@@ -108,7 +108,7 @@ def bot():
             reply(replyToken, replyQueue[:5])
         elif text[1] == 'r':
             resetdone = resetnewday()
-            if resetdone == 0:
+            if resetdone == 1:
                 replyQueue.append("กด reset ไปแล้วครับ")
                 reply(replyToken, replyQueue[:5])
             else:
