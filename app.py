@@ -107,7 +107,12 @@ def bot():
             replyQueue.append("LOW updated : {}".format(todayLOW))
             reply(replyToken, replyQueue[:5])
         elif text[1] == 'r':
-            resetnewday()
+            if resetnewday():
+                replyQueue.append("กด reset ไปแล้วครับ")
+                reply(replyToken, replyQueue[:5])
+            else:
+                replyQueue.append("reset")
+                reply(replyToken, replyQueue[:5])
         # # textfromuser = "/1114,1113,1120,1113"
         # todaymode = text.split(",")[0]
         # todaymode = todaymode[1:]
