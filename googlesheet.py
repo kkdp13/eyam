@@ -39,22 +39,22 @@ def eyaminfo():
     tHIGH2 = 5
     tSet1 = 13
     tSet2 = 3
-    Till1 = 10
-    Till2 = 8
+    Till1 = 8
+    Till2 = 10
     kt1 = 10
     kt2 = 10
-    resis11 = 11
-    resis12 = 16
-    resis21 = 12
-    resis22 = 16
-    resis31 = 13
-    resis32 = 16
-    support11 = 11
-    support12 = 18
-    support21 = 12
-    support22 = 18
-    support31 = 13
-    support32 = 18
+    resis11 = 16
+    resis12 = 11
+    resis21 = 16
+    resis22 = 12
+    resis31 = 16
+    resis32 = 13
+    support11 = 18
+    support12 = 11
+    support21 = 18
+    support22 = 12
+    support31 = 18
+    support32 = 13
     yesterdaymode = wks.cell(ymode1,ymode2).value
     todaymode = wks.cell(tmode1,tmode2).value
     todaytrend = wks.cell(ttrend1,ttrend2).value
@@ -124,3 +124,36 @@ def resetnewday():
         return tmode
     else:
         return tmode
+
+# Till1 = 8
+# Till2 = 10
+# kt1 = 10
+# kt2 = 10
+# resis11 = 16
+# resis12 = 11
+# resis21 = 16
+# resis22 = 12
+# resis31 = 16
+# resis32 = 13
+# support11 = 18
+# support12 = 11
+# support21 = 18
+# support22 = 12
+# support31 = 18
+# support32 = 13
+# until = wks.cell(Till1,Till2).value
+# kt = wks.cell(kt1,kt2).value
+# resis = wks.cell(resis11,resis12).value
+# resis1 = wks.cell(resis21,resis22).value
+# resis2 = wks.cell(resis31,resis32).value
+# support = wks.cell(support11,support12).value
+# support1 = wks.cell(support21,support22).value
+# support2 = wks.cell(support31,support32).value
+# print(until)
+# print(kt)
+# print(resis)
+# print(resis1)
+# print(resis2)
+# print(support)
+# print(support1)
+# print(support2)
