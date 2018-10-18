@@ -39,6 +39,22 @@ def eyaminfo():
     tHIGH2 = 5
     tSet1 = 13
     tSet2 = 3
+    Till1 = 10
+    Till2 = 8
+    kt1 = 10
+    kt2 = 10
+    resis11 = 11
+    resis12 = 16
+    resis21 = 12
+    resis22 = 16
+    resis31 = 13
+    resis32 = 16
+    support11 = 11
+    support12 = 18
+    support21 = 12
+    support22 = 18
+    support31 = 13
+    support32 = 18
     yesterdaymode = wks.cell(ymode1,ymode2).value
     todaymode = wks.cell(tmode1,tmode2).value
     todaytrend = wks.cell(ttrend1,ttrend2).value
@@ -51,40 +67,22 @@ def eyaminfo():
     todayLOW = wks.cell(tLOW1,tLOW2).value
     todayHIGH = wks.cell(tHIGH1,tHIGH2).value
     todaySet0 = wks.cell(tSet1,tSet2).value
-    # print("yesterdaymode = {}".format(yesterdaymode))
-    # print("todaymode = {}".format(todaymode))
-    # print("todaytrend = {}".format(todaytrend))
-    # print("todayLY 50% = {}".format(todayLY))
-    # print("todayJP 127% = {}".format(todayJP))
-    # print("todayNN1 161.8% = {}".format(todayNN1))
-    # print("todayNN2 261.8% = {}".format(todayNN2))
-    # print("todayKM1 423.6% = {}".format(todayKM1))
-    # print("todayKM2 685.4% = {}".format(todayKM2))
-    # print("todayLOW = {}".format(todayLOW))
-    # print("todayHIGH = {}".format(todayHIGH))
-    # print("todaySet0 = {}".format(todaySet0))
-    # print("--------"*10)
-    return [yesterdaymode,todaymode,todaytrend,todayLY,todayJP,todayNN1,todayNN2,todayKM1,todayKM2,todayLOW,todayHIGH,todaySet0]
+    until = wks.cell(Till1,Till2).value
+    kt = wks.cell(kt1,kt2).value
+    resis = wks.cell(resis11,resis12).value
+    resis1 = wks.cell(resis21,resis22).value
+    resis2 = wks.cell(resis31,resis32).value
+    support = wks.cell(support11,support12).value
+    support1 = wks.cell(support21,support22).value
+    support2 = wks.cell(support31,support32).value
+    return [yesterdaymode,todaymode,todaytrend,todayLY,todayJP,
+    todayNN1,todayNN2,todayKM1,todayKM2,todayLOW,todayHIGH,
+    todaySet0,until,kt,resis,resis1,resis2,support,support1,support2]
 
 def modeupdate(todaymode):
     tmode1 = 4
     tmode2 = 3
     wks.update_cell(tmode1,tmode2,todaymode)
-    # set11 = 14
-    # set12 = 5
-    # mode1 = 2
-    # mode2 = 7
-    # tmode = wks.cell(tmode1,tmode2).value
-    # if tmode == 0:
-    #     wks.update_cell(tmode1,tmode2,todaymode)
-    #     wks.update_cell(mode1,mode2,todaymode)
-    #     wks.update_cell(set11,set12,1)
-    # else:
-    #     wks.update_cell(tmode1,tmode2,todaymode)
-    #     mode = wks.cell(mode1,mode2).value
-    #     if mode != todaymode:
-    #         wks.update_cell(mode1,mode2,todaymode)
-    #         wks.update_cell(set11,set12,1)
 
 def ymodeupdate(yesterdaymode):
     ymode1 = 3
@@ -95,11 +93,6 @@ def highupdate(todayhigh):
     tHIGH1 = 12
     tHIGH2 = 5
     wks.update_cell(tHIGH1,tHIGH2,todayhigh)
-    # oldhigh = wks.cell(tHIGH1,tHIGH2).value
-    # if oldhigh == 0:
-    #     wks.update_cell(tHIGH1,tHIGH2,todayhigh)
-    # else:
-    #     wks.update_cell(tHIGH1,tHIGH2,todayhigh)
 
 def lowupdate(todaylow):
     tLOW1 = 12
@@ -131,17 +124,3 @@ def resetnewday():
         return tmode
     else:
         return tmode
-    # wks.update_cell(ymode1,ymode2,tmode)
-    # wks.update_cell(tHIGH1,tHIGH2,0)
-    # wks.update_cell(tLOW1,tLOW2,0)
-    # wks.update_cell(tmode1,tmode2,0)
-    # wks.update_cell(samemode1,samemdoe2,0)
-    # wks.update_cell(newset1,newset2,0)
-
-# resetdone = resetnewday()
-# print(resetdone)
-# eyaminfo()
-# yesmode1 = 3
-# yesmode2 = 3
-# wks.update_cell(yesmode1,yesmode2,'1234')
-# eyaminfo()

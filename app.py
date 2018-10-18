@@ -17,13 +17,6 @@ import requests
 from eyam import eyam
 from googlesheet import eyaminfo, modeupdate, ymodeupdate, highupdate, lowupdate, resetnewday
 
-#----------------------------------------
-#from diamondprice import diamondprice
-#from placevalue import placevalue
-#from getcurrency import getcurrency
-#from writeindb import writeindb
-#----------------------------------------
-
 # ตรง YOURSECRETKEY ต้องนำมาใส่เองครับจะกล่าวถึงในขั้นตอนต่อๆ ไป
 global LINE_API_KEY
 # ห้ามลบคำว่า Bearer ออกนะครับเมื่อนำ access token มาใส่
@@ -66,25 +59,6 @@ def bot():
     text = msg_in_json["events"][0]['message']['text'].lower().strip()
     textstart = text[0]
     
-    # ตัวอย่างการทำให้ bot ถาม-ตอบได้ แบบ exact match
-    # response_dict = {'สวัสดี':'สวัสดีครับ'}
-    # if text in response_dict:
-    #     replyQueue.append(reponse_dict[text])
-    # else:
-    #     replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
-       
-    # ตัวอย่างการทำให้ bot ถาม-ตอบได้ แบบ non-exact match
-    # โดยที่มี method ชื่อ find_closest_sentence ที่ใช้การเปรียบเทียบประโยค
-    # เพื่อค้นหาประโยคที่ใกล้เคียงที่สุด อาจใช้เรื่องของ word embedding มาใช้งานได้ครับ
-    # simple sentence embeddings --> https://openreview.net/pdf?id=SyK00v5xx
-    # response_dict = {'สวัสดี':'สวัสดีครับ'}
-    # closest = find_closest_sentence(response_dict, text)
-    # replyQueue.append(reponse_dict[closest])
-   
-    # ตอบข้อความ "นี่คือรูปแบบข้อความที่รับส่ง" กลับไป
-    #replyQueue.append('นี่คือรูปแบบข้อความที่รับส่ง')
-    
-    # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
     if textstart == '/':
         if text[1] == 't':
             todaymode = text.split(",")[1]
@@ -113,30 +87,19 @@ def bot():
                 reply(replyToken, replyQueue[:5])
             else:
                 replyQueue.append("กด reset ไปแล้วครับ")
-                reply(replyToken, replyQueue[:5])
-        # replyQueue.append("mode updated : {}".format(resetdone))
-        # reply(replyToken, replyQueue[:5])        
+                reply(replyToken, replyQueue[:5])   
         return 'OK', 200
     elif textstart == '=':
         geteyaminfos = eyaminfo()
         """yesterdaymode,todaymode,todaytrend,
         todayLY,todayJP,todayNN1,todayNN2,
-        todayKM1,todayKM2,todayLOW,todayHIGH,todaySet0"""
+        todayKM1,todayKM2,todayLOW,todayHIGH,todaySet0,
+        until,KT,resis,support"""
         info = "ymode = {}\ntmode = {}\ntrend = {}\nset0 = {}\n".format(geteyaminfos[0],geteyaminfos[1],geteyaminfos[2],geteyaminfos[11])
         info2 = "LY 50% = {}\nJP 127% = {}\nNN1 161.8% = {}\nNN2 261.8% = {}\n".format(geteyaminfos[3],geteyaminfos[4],geteyaminfos[5],geteyaminfos[6])
-        info3 = "KM1 423.6% = {}\nKM2 685.4% = {}\nLOW = {}\nHIGH = {}".format(geteyaminfos[7],geteyaminfos[8],geteyaminfos[9],geteyaminfos[10])
-        # print("yesterdaymode = {}".format(geteyaminfos[0]))
-        # print("todaymode = {}".format(geteyaminfos[1]))
-        # print("todaytrend = {}".format(geteyaminfos[2]))
-        # print("todayLY 50% = {}".format(geteyaminfos[3]))
-        # print("todayJP 127% = {}".format(geteyaminfos[4]))
-        # print("todayNN1 161.8% = {}".format(geteyaminfos[5]))
-        # print("todayNN2 261.8% = {}".format(geteyaminfos[6]))
-        # print("todayKM1 423.6% = {}".format(geteyaminfos[7]))
-        # print("todayKM2 685.4% = {}".format(geteyaminfos[8]))
-        # print("todayLOW = {}".format(geteyaminfos[9]))
-        # print("todayHIGH = {}".format(geteyaminfos[10]))
-        replyQueue.append(info+info2+info3)
+        info3 = "KM1 423.6% = {}\nKM2 685.4% = {}\nLOW = {}\nHIGH = {}\n".format(geteyaminfos[7],geteyaminfos[8],geteyaminfos[9],geteyaminfos[10])
+        info4 = "Till = {}\nKT = {}\nแนวต้าน = {},{},{}\nแนวรับ = {},{},{}\n".format(geteyaminfos[11],geteyaminfos[12],geteyaminfos[13],geteyaminfos[14],geteyaminfos[15],geteyaminfos[16],geteyaminfos[17],geteyaminfos[18])
+        replyQueue.append(info+info2+info3+info4)
         reply(replyToken, replyQueue[:5])
         return 'OK', 200
     # elif textstart == '.':
