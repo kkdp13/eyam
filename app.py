@@ -98,7 +98,7 @@ def bot():
         info = "ymode = {}\ntmode = {}\ntrend = {}\nset0 = {}\n".format(geteyaminfos[0],geteyaminfos[1],geteyaminfos[2],geteyaminfos[11])
         info2 = "LY 50% = {}\nJP 127% = {}\nNN1 161.8% = {}\nNN2 261.8% = {}\n".format(geteyaminfos[3],geteyaminfos[4],geteyaminfos[5],geteyaminfos[6])
         info3 = "KM1 423.6% = {}\nKM2 685.4% = {}\nLOW = {}\nHIGH = {}\n".format(geteyaminfos[7],geteyaminfos[8],geteyaminfos[9],geteyaminfos[10])
-        info4 = "Till = {}\nKT = {}\nแนวต้าน = {},{},{}\nแนวรับ = {},{},{}\n".format(geteyaminfos[11],geteyaminfos[12],geteyaminfos[13],geteyaminfos[14],geteyaminfos[15],geteyaminfos[16],geteyaminfos[17],geteyaminfos[18])
+        info4 = "Till = {}\nKT = {}\nแนวต้าน = {},{},{}\nแนวรับ = {},{},{}\n".format(geteyaminfos[12],geteyaminfos[13],geteyaminfos[14],geteyaminfos[15],geteyaminfos[16],geteyaminfos[17],geteyaminfos[18],geteyaminfos[19])
         replyQueue.append(info+info2+info3+info4)
         reply(replyToken, replyQueue[:5])
         return 'OK', 200
