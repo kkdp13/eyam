@@ -102,13 +102,14 @@ def bot():
         replyQueue.append(info+info2+info3+info4)
         reply(replyToken, replyQueue[:5])
         return 'OK', 200
-    # elif textstart == '.':
-    #     currency = 0.0
-    #     currency = float(getcurrency())
-    #     currencytext = 'superrich rate = {}'.format(currency)
-    #     replyQueue.append(currencytext)
-    #     reply(replyToken, replyQueue[:5])
-    #     return 'OK', 200
+    elif textstart == '.':
+        textinfo = text[1:]
+        textcount = len(textinfo)
+        textcount = textcount-1
+        finaltext = textinfo[:textcount-4]
+        replyQueue.append(finaltext)
+        reply(replyToken, replyQueue[:5])
+        return 'OK', 200
     else:
         # replyQueue.append('please start with / for asking bot')
         # reply(replyToken, replyQueue[:5]) 
@@ -135,4 +136,4 @@ def reply(replyToken, textList):
     return
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
