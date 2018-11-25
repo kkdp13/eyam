@@ -10,7 +10,7 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name("eyamproject-9cf0
 
 gc = gspread.authorize(credentials)
 
-wks = gc.open("SR").sheet1
+wks = gc.open("EYAMFORMAT").sheet1
 pp = pprint.PrettyPrinter()
 glist = wks.get_all_values()
 # pp.pprint(glist) #print all list in ggsheet
