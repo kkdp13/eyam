@@ -6,11 +6,11 @@ import pprint
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 
-credentials = ServiceAccountCredentials.from_json_keyfile_name("testeyam-37ea015cf1ac.json", scope)
+credentials = ServiceAccountCredentials.from_json_keyfile_name("eyamproject-9cf040e3da1c.json", scope)
 
 gc = gspread.authorize(credentials)
 
-wks = gc.open("test").sheet1
+wks = gc.open("S&R").sheet1
 pp = pprint.PrettyPrinter()
 glist = wks.get_all_values()
 # pp.pprint(glist) #print all list in ggsheet
