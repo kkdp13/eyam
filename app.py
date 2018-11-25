@@ -14,7 +14,7 @@ version 1.00
 from flask import Flask, request
 import json
 import requests
-from eyam import eyam
+#from eyam import eyam
 from googlesheet import eyaminfo, modeupdate, ymodeupdate, highupdate, lowupdate, resetnewday
 
 # ตรง YOURSECRETKEY ต้องนำมาใส่เองครับจะกล่าวถึงในขั้นตอนต่อๆ ไป
