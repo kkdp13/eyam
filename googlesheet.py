@@ -125,6 +125,9 @@ def resetnewday():
     else:
         return tmode
 
+eyaminfotest = eyaminfo()
+print(eyaminfotest)
+
 # Till1 = 8
 # Till2 = 10
 # kt1 = 10
