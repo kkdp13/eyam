@@ -125,8 +125,11 @@ def resetnewday():
     else:
         return tmode
 
-eyaminfotest = eyaminfo()
-print(eyaminfotest)
+def Tilldate():
+    Tillstart1 = 4
+    Tillstart2 = 10
+    Tilldatestart = wks.cell(Tillstart1,Tillstart2).value
+    return Tilldatestart
 
 # Till1 = 8
 # Till2 = 10

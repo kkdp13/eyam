@@ -15,7 +15,7 @@ from flask import Flask, request
 import json
 import requests
 from eyam import eyam
-from googlesheet import eyaminfo, modeupdate, ymodeupdate, highupdate, lowupdate, resetnewday
+from googlesheet import eyaminfo, modeupdate, ymodeupdate, highupdate, lowupdate, resetnewday, Tilldate
 
 # ตรง YOURSECRETKEY ต้องนำมาใส่เองครับจะกล่าวถึงในขั้นตอนต่อๆ ไป
 global LINE_API_KEY
@@ -88,6 +88,10 @@ def bot():
             else:
                 replyQueue.append("กด reset ไปแล้วครับ")
                 reply(replyToken, replyQueue[:5])   
+        elif text[1] == 'u':
+            until = Tilldate()
+            replyQueue.append("Till Start : {}".format(until))
+            reply(replyToken, replyQueue[:5])
         return 'OK', 200
     elif textstart == '=':
         geteyaminfos = eyaminfo()
